@@ -1,0 +1,24 @@
+service: image-optimize
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+functions:
+  optimize:
+    handler: handler.optimize
+    events:
+      - http:
+          path: optimize
+          method: get
+  readme:
+    handler: handler.readme
+    events:
+      - http:
+          path: readme.md
+          method: get
+
+plugins:
+  - serverless-offline
+

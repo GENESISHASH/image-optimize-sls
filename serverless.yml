@@ -1,9 +1,15 @@
+org: tosadvisor
+app: image-optimize
 service: image-optimize
 frameworkVersion: "3"
 
 provider:
   name: aws
   runtime: nodejs18.x
+  apiGateway:
+    binaryMediaTypes:
+      - '*/*'
+      - 'image/*'
 
 functions:
   optimize:
